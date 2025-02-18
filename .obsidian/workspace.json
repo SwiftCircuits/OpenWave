@@ -11,10 +11,14 @@
             "id": "804cd0c92e60b926",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "docs/hardware/Spec Doc.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Spec Doc"
             }
           }
         ]
@@ -163,12 +167,18 @@
   },
   "active": "804cd0c92e60b926",
   "lastOpenFiles": [
+    "hardware/main/OpenWave_Init/fp-C0D0.tmp",
+    "hardware/main/OpenWave_Init/OpenWave_Init.step",
+    "hardware/main/OpenWave_Init/$tempfile$.step",
+    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-18_235753.zip",
+    "hardware/main/OpenWave_Init/~OpenWave_Init.kicad_pcb.lck",
+    "hardware/main/OpenWave_Init/fp-53E2.tmp",
+    "hardware/libraries/LMH6658MAX_NOPB/3D/LMH6658MAX_NOPB.stp",
+    "hardware/libraries/LMH6658MAX_NOPB/3D",
+    "hardware/libraries/LMH6658MAX_NOPB/Quadcept/LMH6658MAX_NOPB.xml",
+    "hardware/libraries/LMH6658MAX_NOPB/Quadcept",
+    "hardware/libraries/LMH6658MAX_NOPB/CR-8000/LMH6658MAX_NOPB.cdf",
     "docs/hardware/Init Spec.md",
-    "docs/hardware/C6AE4200",
-    "docs/hardware/Init Comps.xlsx",
-    "docs/hardware/22DD4200",
-    "docs/hardware/~$Init Comps.xlsx",
-    "docs/hardware/Init Comps.csv",
-    "docs/hardware/components.csv"
+    "docs/hardware/Spec Doc.md"
   ]
 }

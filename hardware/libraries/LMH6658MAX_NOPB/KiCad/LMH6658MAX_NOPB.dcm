@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LMH6658MAX_NOPB
+D 270MHz Single Supply, Single &amp; Dual Operational Amplifiers
+K
+F http://www.ti.com/lit/gpn/LMH6658
+$ENDCMP
+#
+#End Doc Library
