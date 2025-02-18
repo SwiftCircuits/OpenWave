@@ -1,0 +1,32 @@
+Component Name,Component Type,Use,Option 1,Link 1,Option 2,Link 2,Spec
+DAC,Digital-to-Analog Converter,Signal Generation,TBD-DAC1,#,TBD-DAC2,#,50-100 MSPS via SPI; 12-bit resolution; SNR > 60 dB; THD < -60 dB; Settling time < 5ns
+Output Amplifier,Operational Amplifier,Signal Conditioning,TBD-AMP1,#,TBD-AMP2,#,Bandwidth > 100 MHz; Slew rate > 500 V/Âµs; Output current > 50mA for 50Î© loads; Low noise < 5 nV/âˆšHz
+MCU,Microcontroller,System Control,TBD-MCU1,#,TBD-MCU2,#,ARM Cortex-M4/M7; â‰¥100MHz; 256KB Flash; 128KB RAM; USB; SPI; CAN; ADC 12-bit
+Battery Management IC,Power Management,Battery Charging & Power Path,TBD-PMIC1,#,TBD-PMIC2,#,Single cell Li-Ion charging; USB-PD support optional; Battery protection; Clean power switching
+Voltage Regulator (Analog),Power Supply,Clean Analog Power,TBD-REG1,#,TBD-REG2,#,3.3V output; Ultra-low noise (<10ÂµV RMS); High PSRR (>80 dB)
+Voltage Regulator (Digital),Power Supply,Digital Logic Power,TBD-REG3,#,TBD-REG4,#,3.3V output; High current capability; Fast transient response
+USB Interface,USB Controller,PC Communication,TBD-USB1,#,TBD-USB2,#,USB 2.0 Full Speed; 5V tolerance; ESD protection
+CAN Transceiver,Communication Interface,CAN Bus Interface,TBD-CAN1,#,TBD-CAN2,#,CAN 2.0B compatible; 3.3V interface; ISO1050 compliant
+Crystal Oscillator,Clock Source,System Timing,TBD-XTAL1,#,TBD-XTAL2,#,High stability; Low phase noise; Temperature compensated
+Potentiometer,User Input,Parameter Control,TBD-POT1,#,TBD-POT2,#,10-100kÎ©; 1% linearity; Metal shaft; >10k cycle life
+LED,Status Indicator,User Feedback,TBD-LED1,#,TBD-LED2,#,3mm or 5mm; 5mA operation; Various colors; 120Â° viewing angle
+Tactile Switch,User Input,Control Selection,TBD-SW1,#,TBD-SW2,#,Tactile feedback; 100k cycle life; 150-250gf operating force
+TVS Diode,Protection,I/O Protection,TBD-TVS1,#,TBD-TVS2,#,Low capacitance; Fast response; Appropriate voltage rating
+USB-C Connector,Connector,Power & Data Input,TBD-USBC1,#,TBD-USBC2,#,USB 2.0 compatible; Through-hole mounting; 5A current rating; Shielded
+BNC Connector,Connector,Signal Output,TBD-BNC1,#,TBD-BNC2,#,50Î© impedance; Panel mount; Gold plated; DC-1GHz bandwidth
+Battery Connector,Connector,Battery Connection,TBD-BATCON1,#,TBD-BATCON2,#,JST-PH or similar; 2A rating; Polarized; Locking
+Debug Connector,Connector,Programming/Debug,TBD-DBG1,#,TBD-DBG2,#,SWD compatible; 2x5 1.27mm pitch; Keyed
+CAN Connector,Connector,CAN Bus,TBD-CANCON1,#,TBD-CANCON2,#,4-pin locking; Polarized; 2A rating
+Flash Memory,Storage,Waveform Storage,TBD-FLASH1,#,TBD-FLASH2,#,32Mbit minimum; SPI interface; >10MHz clock
+Battery Protection,Protection,Battery Safety,TBD-BPROT1,#,TBD-BPROT2,#,Overcurrent; Overvoltage; Temperature protection
+Ferrite Bead,EMI Suppression,Power Filtering,TBD-FB1,#,TBD-FB2,#,600Î© @ 100MHz; 1.5A rating
+Bypass Capacitors,Passive,Power Decoupling,TBD-CAP1,#,TBD-CAP2,#,0.1ÂµF & 10ÂµF X5R/X7R; Low ESR
+Power Inductors,Passive,Power Filtering,TBD-IND1,#,TBD-IND2,#,10ÂµH; Low DCR; >1A rating
+Current Sense Resistor,Passive,Current Monitoring,TBD-RSENSE1,#,TBD-RSENSE2,#,0.05Î©; 1%; 0.5W
+Temperature Sensor,Sensor,Thermal Monitoring,TBD-TEMP1,#,TBD-TEMP2,#,Â±1Â°C accuracy; I2C interface
+LED Current Limiting Resistors,Passive,LED Control,TBD-RLED1,#,TBD-RLED2,#,Appropriate value for 5mA; 1%
+ESD Protection Array,Protection,Interface Protection,TBD-ESD1,#,TBD-ESD2,#,Low capacitance; USB compatible
+Battery,Power Source,Portable Power,TBD-BAT1,#,TBD-BAT2,#,Li-Ion 3.7V; >2000mAh; With protection
+Enclosure,Mechanical,Housing,TBD-ENC1,#,TBD-ENC2,#,Suitable size; Ventilation; Panel mount support
+Knobs,Mechanical,Potentiometer Control,TBD-KNOB1,#,TBD-KNOB2,#,Metal shaft compatible; Indicator line
+Heat Sink,Thermal,Amplifier Cooling,TBD-HS1,#,TBD-HS2,#,Appropriate size; Low thermal resistance
