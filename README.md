@@ -167,7 +167,7 @@ OpenWave builds on the work of many open-source projects and individuals. Specia
 
 - Create an issue for bugs or feature requests
 - Join our discussions for general questions
-- Email for other inquiries: [Your Email]
+- Email for other inquiries: constantinescu.alex02@gmail.com
 
 ---
 
