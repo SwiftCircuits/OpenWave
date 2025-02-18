@@ -161,8 +161,6 @@ Your expertise can help make OpenWave better! Here's how you can contribute:
 ## Acknowledgments
 
 OpenWave builds on the work of many open-source projects and individuals. Special thanks to:
-- The Arduino community for their USB implementation examples
-- KiCad and the open-source EDA community
 - Various open-source test equipment projects that inspired this work
 
 ## Contact and Support
