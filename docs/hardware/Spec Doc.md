@@ -2,7 +2,7 @@
 
 ## System Overview
 
-The arbitrary waveform generator is designed as a 12V-powered device for system identification and control system analysis. Operating at frequencies up to 8 MHz with 60 dB SNR, it provides precise waveform generation through a dual-channel output system.
+The arbitrary waveform generator is designed as a 12V-powered device for system identification and control system analysis. Operating at frequencies up to 3 MHz with 60 dB SNR, it provides precise waveform generation through a dual-channel output system.
 
 ## Signal Chain Architecture
 
@@ -162,3 +162,109 @@ The design includes provisions for:
 - Purpose: Future feature enhancement
 
 Note: Implementation details will be determined during the detailed design phase.
+
+
+# Panel PCB System
+
+## Overview
+
+The enclosure utilizes PCBs as structural and functional elements for both front and rear panels, integrating user interface components and connectors directly into the mechanical structure. This approach combines electrical and mechanical functionality while maintaining professional appearance and manufacturability.
+
+## Front Panel Implementation
+
+### Integrated Components
+
+The front panel PCB serves as both a structural element and a control interface, incorporating:
+
+Direct-Mount Components:
+
+- Three magnetic rotary encoders for parameter control
+    - Inner face: Encoder PCB mounting
+    - Outer face: 3D-printed control mechanism with embedded magnets
+- Five mode indicator LEDs
+    - Sine, Square, Triangle, Ramp, and Custom waveform indication
+- Status LEDs
+    - Power indication
+    - System fault indication
+- Three control buttons with protective covers
+- Supporting circuitry for controls and indicators
+
+Cut-Through Elements:
+
+- Dual BNC connector openings for waveform outputs
+- USB Type-C connector opening for computer interface
+- JST connector opening for CAN interface
+- LCD display opening (provisional)
+
+### Electrical Integration
+
+- 12-pin FPC connector interface to main board
+- Local power distribution for LEDs and encoders
+- Signal conditioning for control inputs
+- Optional I2C expansion for additional controls
+
+## Rear Panel Implementation
+
+### Integrated Components
+
+The rear panel PCB provides power input and auxiliary connections:
+
+Cut-Through Elements:
+
+- 12V DC barrel connector opening (5.5mm × 2.1mm)
+- Ventilation openings for thermal management
+
+### Mechanical Integration
+
+- PCB thickness optimized for structural integrity
+- Mounting points coordinated with main chassis
+- EMI considerations in panel design and grounding
+
+## Mechanical Requirements
+
+### Material Specifications
+
+- PCB Material: FR4
+- Minimum Thickness: Determined by structural analysis
+- Surface Finish: Black solder mask with white silkscreen
+- Copper Weight: Sufficient for structural integrity and EMI shielding
+
+### Assembly Integration
+
+- Precision alignment features for main board mounting
+- Integrated standoffs for structural support
+- Strain relief for cable and connector interfaces
+- Thermal considerations for component spacing
+
+### Environmental Considerations
+
+- Operating Temperature Range: 0°C to 50°C
+- Humidity: 10% to 90% non-condensing
+- Mechanical Shock: Survival of 50g, 11ms half-sine
+
+## Manufacturing Considerations
+
+The panel PCBs shall be designed with consideration for:
+
+- Standard PCB manufacturing processes
+- Common tolerance specifications
+- Cost-effective panel utilization
+- Assembly efficiency
+- Maintenance accessibility
+- Future revision compatibility
+
+## Electrical Requirements
+
+### Signal Integrity
+
+- Ground plane continuity between panels
+- EMI shielding effectiveness
+- Signal routing isolation
+- Power distribution optimization
+
+### Interface Requirements
+
+- FPC connector specifications
+- Power and signal pin assignments
+- Grounding scheme integration
+- EMI/EMC compliance considerations

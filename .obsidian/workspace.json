@@ -4,33 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "85d1a5b87684167b",
+        "id": "46dee6bca55bd7a6",
         "type": "tabs",
         "children": [
           {
-            "id": "804cd0c92e60b926",
+            "id": "6d8d171e8506be34",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "212ce150d1289157",
-            "type": "leaf",
-            "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "docs/Logov1Big.png"
+                "file": "Project Overview - OpenWave.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Logov1Big"
+              "icon": "lucide-file",
+              "title": "Project Overview - OpenWave"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -174,25 +165,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "212ce150d1289157",
+  "active": "6d8d171e8506be34",
   "lastOpenFiles": [
-    "docs/hardware/626D1000",
+    "Diary - OpenWave.md",
+    "Project Overview - OpenWave.md",
+    "Usefull Info Videos - OpenWave.md",
+    "docs/hardware/Datasheets/ad5428_ad5440_ad5447-3555361.pdf",
+    "docs/hardware/Datasheets/ad5428_ad5440_ad5447-3555361.pdf.crdownload",
+    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-19_231750.zip",
+    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-19_231229.zip",
+    "hardware/main/OpenWave_Init/fp-7B69.tmp",
+    "hardware/libraries/TPS7A2050PDBVR/3D/TPS7A2050PDBVR.stp",
+    "hardware/libraries/TPS7A2050PDBVR/3D",
+    "hardware/libraries/TPS7A2050PDBVR/Quadcept/TPS7A2050PDBVR.xml",
+    "hardware/libraries/TPS7A2050PDBVR/Quadcept",
+    "hardware/libraries/TPS7A2050PDBVR/CR-8000/TPS7A2050PDBVR.cdf",
+    "docs/hardware/Spec Doc.md",
+    "README.md",
+    "docs/Logov1Big.png",
     "docs/Logov1Wide.png",
     "docs/Logov1Big - Copy.png",
-    "docs/hardware/Spec Doc.md",
-    "docs/Logov1Big.png",
-    "docs/New folder",
-    "docs/hardware/AE621000",
-    "Diary - OpenWave.md",
-    "docs/hardware/~$Init Comps.xlsx",
-    "README.md",
-    "docs/hardware/Init Spec.md",
-    "hardware/main/OpenWave_Init/fp-C0D0.tmp",
-    "hardware/main/OpenWave_Init/OpenWave_Init.step",
-    "hardware/main/OpenWave_Init/$tempfile$.step",
-    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-18_235753.zip",
-    "hardware/main/OpenWave_Init/~OpenWave_Init.kicad_pcb.lck",
-    "hardware/main/OpenWave_Init/fp-53E2.tmp",
-    "hardware/libraries/LMH6658MAX_NOPB/3D/LMH6658MAX_NOPB.stp"
+    "docs/hardware/Init Spec.md"
   ]
 }

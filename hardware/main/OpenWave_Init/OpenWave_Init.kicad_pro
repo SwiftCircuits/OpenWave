@@ -427,7 +427,14 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "easyeda2kicad",
+      "Connector_Generic",
+      "PCM_JLCPCB-Capacitors",
+      "PCM_JLCPCB-Diode-Packages",
+      "PCM_JLCPCB-Transformers",
+      "PCM_JLCPCB-Resistors"
+    ]
   },
   "meta": {
     "filename": "OpenWave_Init.kicad_pro",

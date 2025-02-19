@@ -54,6 +54,130 @@ Engineering Notes:
 - Digital current draw estimated at ~250mA worst case
 - Temperature considerations for voltage reference critical
 ### 19
-1. Laying out major components:
-   - 
+
+#### Key Decisions
+- Stepped requirements down to 2MHz
+- Decided to use PCBs for Front and Back Panels
+
+#### Daily TODO
+
+- [ ]  Complete STM32CubeIDE basic setup
+- [x]  Start power distribution schematic
+- [x]  Research mixed-signal board layout guidelines
+
+#### End of Day Notes
+
+- Schematic done around STM32 and Power System
+- Changed power arhitecture, now stepping 12V down to 5.5V which is split across the 2 LDOs and the VRef generator, one of the LDOs now is a fixed 5V one with filtering (for better DAC/OpAmp Performance)
   
+
+#### Tasks
+
+1. STM32CubeIDE Project Setup
+    
+    ##### Progress
+    
+    - HSE configured at 25 MHz
+    - Clock configuration auto-solved
+    - SWD debugging enabled
+    - Enabled peripherals:
+        - FDCAN
+        - SPI
+        - QSPI: Bank 1 with Quad SPI Lines
+        - USB_OTG_FS - Device - CDC
+    
+    ##### TODO
+    
+    - [ ]  Optimize clock tree configuration
+    - [ ]  Complete DMA setup
+    - [x]  Review USB device class options
+    
+    ##### Issues
+    
+    - [x]  ~~RCC CRC SYNC confusion~~
+        - Solution: This is CRS_SYNC (Clock Recovery System)
+        - Used for USB SOF synchronization
+    - [x]  ~~PWR Monitoring State~~
+        - Solution: Always active, UI toggle for external only
+    - [x]  ~~USB VBUS handling~~
+        - Solution: PA9 with voltage divider
+    
+    ##### Notes
+    
+    - Clock auto-configuration creates too many divisions
+    - May need to revisit USB configuration for custom device class
+    - DMA priority scheme needs careful consideration
+2. Schematic Design
+    
+    ##### Progress
+    
+    - Started STM32H743VIT6 section
+    - Added backup battery circuit
+    
+    ##### TODO
+    
+    - [x]  Review crystal layout requirements
+    
+    ##### Notes
+    
+    - VBat connected through solder jumper
+    - Consider adding test points for power rails
+
+#### References
+
+- STM32H743 Reference Manual
+- AN4950: Crystal oscillator configuration
+- Mixed-signal PCB design guidelines
+### 20
+
+#### Key Decisions
+- Decision 1
+
+#### Today's Goals
+- [ ] Finish up most of the core schematic
+- [ ] Goal 2
+- [ ] Goal 3
+
+#### Tasks
+
+1. Schematic
+    ##### TODO
+    - [ ] Fix step-down divider to get 5.5V instead of 5V
+    - [ ] Subtask 2
+    
+    ##### NOTES
+    - Note 1
+    - Note 2
+    
+    ##### ISSUES
+    - [x] ~~Issue 1~~
+        - Solution: How it was resolved
+    - [ ] Issue 2
+        - Current status
+        - Attempted solutions
+
+2. Another Task
+    ##### TODO
+    - [ ] Subtask 1
+    
+    ##### NOTES
+    - Important observation
+    
+    ##### ISSUES
+    - [ ] Blocker identified
+        - Potential workarounds
+
+#### End of Day Notes
+- Accomplished thing 1
+    - Additional details
+    - Technical implications
+- Discovered thing 2
+    - Why this matters
+    - Next steps
+
+#### Gallery
+![[image1.png]]
+- Caption: What this image shows
+
+![[image2.png]]
+- Caption: Purpose of this screenshot
