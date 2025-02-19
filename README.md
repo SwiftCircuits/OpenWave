@@ -10,7 +10,7 @@
 
 [Features](#features) • [Getting Started](#getting-started) • [Documentation](#documentation) • [Contributing](#contributing)
 
-<img src="/api/placeholder/800/400" alt="OpenWave Project Banner">
+<img src="/docs/Logov1Wide.png" alt="OpenWave Project Banner">
 
 </div>
 
