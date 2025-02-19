@@ -16,8 +16,21 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "212ce150d1289157",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "docs/Logov1Big.png"
+              },
+              "icon": "lucide-image",
+              "title": "Logov1Big"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -161,19 +174,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "804cd0c92e60b926",
+  "active": "212ce150d1289157",
   "lastOpenFiles": [
+    "docs/hardware/626D1000",
+    "docs/Logov1Wide.png",
+    "docs/Logov1Big - Copy.png",
     "docs/hardware/Spec Doc.md",
+    "docs/Logov1Big.png",
+    "docs/New folder",
+    "docs/hardware/AE621000",
+    "Diary - OpenWave.md",
+    "docs/hardware/~$Init Comps.xlsx",
+    "README.md",
+    "docs/hardware/Init Spec.md",
     "hardware/main/OpenWave_Init/fp-C0D0.tmp",
     "hardware/main/OpenWave_Init/OpenWave_Init.step",
     "hardware/main/OpenWave_Init/$tempfile$.step",
     "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-18_235753.zip",
     "hardware/main/OpenWave_Init/~OpenWave_Init.kicad_pcb.lck",
     "hardware/main/OpenWave_Init/fp-53E2.tmp",
-    "hardware/libraries/LMH6658MAX_NOPB/3D/LMH6658MAX_NOPB.stp",
-    "hardware/libraries/LMH6658MAX_NOPB/3D",
-    "hardware/libraries/LMH6658MAX_NOPB/Quadcept/LMH6658MAX_NOPB.xml",
-    "hardware/libraries/LMH6658MAX_NOPB/Quadcept",
-    "docs/hardware/Init Spec.md"
+    "hardware/libraries/LMH6658MAX_NOPB/3D/LMH6658MAX_NOPB.stp"
   ]
 }
