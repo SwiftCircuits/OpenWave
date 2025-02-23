@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RB1-125BAG1A
+D 1 Port RJ45Through Hole 10/100 Base-T, AutoMDIX
+K
+F https://www.wiznet.hk/en/index.php?controller=attachment&id_attachment=1
+$ENDCMP
+#
+#End Doc Library

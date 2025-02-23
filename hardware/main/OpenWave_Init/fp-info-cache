@@ -1,4 +1,11 @@
-24030836575859362
+24046498264006414
+A Lot of Stuff
+5415025-2
+5415025-2
+Connector
+0
+5
+5
 A Lot of Stuff
 223287024
 2-2328702-4-6
@@ -6,6 +13,13 @@ Connector
 0
 26
 26
+A Lot of Stuff
+ACT1210D1012PTL00
+ACT1210D-101-2P-TL00-2
+Filter
+0
+4
+4
 A Lot of Stuff
 ESP32C6MINI1H8
 ESP32-C6-MINI-1-H8-2
@@ -70,12 +84,40 @@ Inductor
 2
 2
 A Lot of Stuff
+OpenWave_Logo_Silk_50mm
+
+
+0
+0
+0
+A Lot of Stuff
+OpenWave_Logo_Silk_50mm_Negative
+
+
+0
+0
+0
+A Lot of Stuff
+PRT10811
+PRT-10811-4
+Connector
+0
+3
+3
+A Lot of Stuff
 QFN50P300X300X80-17N-D
 RTE0016C
 Integrated Circuit
 0
 17
 17
+A Lot of Stuff
+RB1125BAG1A
+RB1-125BAG1A-2
+Connector
+0
+14
+14
 A Lot of Stuff
 RECE20369001E01
 RECE.20369.001E.01-3
@@ -98119,6 +98161,13 @@ QFN-7_L4.0-W3.3_TPSM863257RDXR
 7
 7
 easyeda2kicad
+SOP65P640X120-28N
+PW(R-PDSO-G28)
+Integrated Circuit
+0
+28
+28
+easyeda2kicad
 SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR
 
 
@@ -98140,6 +98189,13 @@ SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR
 5
 5
 easyeda2kicad
+SOT95P280X145-5N
+DBV
+Integrated Circuit
+0
+5
+5
+easyeda2kicad
 SW-SMD_K3-1235S-K1
 
 
@@ -98153,3 +98209,10 @@ USB-C-TH_MC-110LD-L93
 0
 16
 13
+easyeda2kicad
+VQFN-24_L5.6-W3.6-P0.50-BL-EP
+
+
+0
+25
+25

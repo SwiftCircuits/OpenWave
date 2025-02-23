@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 5415025-2
+D Body Features: Body Plating Material Tin | Body Material Zinc | Configuration Features: Number of Positions 1 | PCB Mount Orientation Right Angle | Number of Coaxial Contacts 1 | Contact Features: RF Connector Center Contact Plating Thickness 30 MICIN | RF Connector Center Contact Material Phosphor Bronze | RF Connector Center Contact Underplating Material Nickel | RF Connector Center Contact Plating Material Gold | Dimensions: Profile Height from PCB .432 INCH | RF Connector Mated Outer Diameter (Approxima
+K
+F https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1307191_BNC_Connectors&DocType=Catalog%20Section&DocLang=English&PartCntxt=5415025-2&DocFormat=pdf
+$ENDCMP
+#
+#End Doc Library

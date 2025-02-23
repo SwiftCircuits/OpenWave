@@ -2,269 +2,311 @@
 
 ## System Overview
 
-The arbitrary waveform generator is designed as a 12V-powered device for system identification and control system analysis. Operating at frequencies up to 3 MHz with 60 dB SNR, it provides precise waveform generation through a dual-channel output system.
+The arbitrary waveform generator represents a precision-focused instrument designed specifically for system identification and control system analysis applications. Operating at frequencies up to 500 kHz with 80 dB SNR, it delivers exceptional waveform generation through a dual-channel output system. The design philosophy emphasizes signal quality and measurement precision over raw speed, making it particularly suitable for control systems applications where signal integrity is paramount.
 
 ## Signal Chain Architecture
 
-The signal generation path is designed around a serial interface approach, prioritizing reliability and simplicity over raw speed. This architectural choice shapes our entire signal chain, from memory management to analog output stage.
+The signal generation path implements a carefully optimized serial interface approach, prioritizing signal integrity and reliability over raw throughput. The architecture centers around high-precision 16-bit DACs (LTC2642-16) with meticulous attention to power supply design and filtering to achieve superior signal quality.
 
-Our design philosophy emphasizes practical performance targets that align with real-world control system needs. For system identification work, timing consistency and signal quality are more critical than extremely high frequencies. Each component in our signal chain is selected with this philosophy in mind:
+Key architectural decisions include:
+- Serial interface communication at 50 MHz
+- Dual independent signal channels
+- Hardware-level trigger processing
+- Dedicated front panel processor for user interface
+- Multi-stage filtering approach
+- Temperature-compensated reference system
+
+Our design philosophy acknowledges that most real-world control systems operate well below 500 kHz, allowing us to optimize for measurement accuracy and signal purity. Each component in the signal chain has been selected based on empirical evaluation and simulation results.
+
 ## Power System Architecture
 
-The power system implements a cascaded multi-rail design optimized for AC-powered operation through a 12V input:
+The power system implements a sophisticated cascaded multi-rail design optimized for ultra-low-noise operation through a 12V input. Special attention has been paid to power supply rejection and filtering at each stage.
 
 ### Input Power
 Requirements:
 - 12V DC input via barrel connector (5.5mm × 2.1mm)
 - Input voltage range: 11V to 13V
 - Power budget: 5-7W total system draw
-- Reverse polarity protection
+- Reverse polarity protection through series MOSFET
+- Inrush current limiting
 - Purpose: Primary system power input
 
 ### Power Rails
-Multiple independent supplies in cascade configuration:
+The system implements a carefully orchestrated cascade of power supplies:
 
-- 5V Main Rail (Switching Supply):
+- 5.5V Main Rail (Switching Supply):
   - Input: 12V DC
-  - Output: 5V at 1.5A minimum
+  - Output: 5.5V
+  - Implementation: TPSM863252 switching regulator
   - High efficiency (>85%)
-  - Switching frequency >1MHz preferred
-  - Purpose: Pre-regulation for 3.3V rails and op-amp power
+  - Switching frequency >1MHz
+  - Custom RLC filter network:
+    - 22µH inductor for switching noise suppression
+    - Optimized capacitor values for minimal resonance
+    - Damping resistors for transient response
+  - Purpose: Pre-regulation for other voltage rails
+
+- 5V Analog Rail (Low-Noise LDO):
+  - Input: 5.5V from switching supply
+  - Output: 5V
+  - Implementation: Ultra-low noise linear regulator
+  - PSRR > 80 dB at 100 kHz
+  - Output noise < 10µV RMS (10Hz to 100kHz)
+  - Purpose: DAC and op-amp power supply
 
 - 3.3V Digital Rail (LDO):
-  - Input: 5V from switching supply
+  - Input: 5.5V from switching supply
   - Output: 3.3V at 500mA
-  - Moderate PSRR requirements
-  - Purpose: Digital logic power
+  - Moderate PSRR requirements (>60 dB)
+  - Fast transient response
+  - Purpose: Digital logic power supply
 
-- 3.3V Analog Rail (LDO):
-  - Input: 5V from switching supply
-  - Output: 3.3V at 200mA
-  - PSRR > 80 dB
-  - Purpose: Sensitive analog circuits
-
-- Reference Voltage:
-  - Precision 3.3V reference
+- 3.3V Reference Voltage (Precision LDO):
+  - Implementation: REF3333 precision reference
   - Initial accuracy < 0.1%
   - Temperature coefficient < 25ppm/°C
-  - Low noise characteristics
+  - Ultra-low noise characteristics
   - Purpose: DAC reference voltage
+  - Temperature monitored for potential compensation
 
-The 5V rail feeds both the operational amplifiers directly and serves as input to the 3.3V regulators, optimizing efficiency through reduced voltage drops across the LDOs.
+### Power Distribution
+The power distribution system employs:
+- Separate analog and digital power planes
+- Star-point grounding topology
+- Independent filtering for each major subsystem
+- Balanced power and return paths
+- Local decoupling at each IC
+- Bulk decoupling at power entry points
 
 ## Control and Communication
 
-### USB Interface
-Requirements:
-- High-speed USB 2.0 capability
-- Robust USB power delivery
-- Command protocol support
-- Streaming data capability
-- Purpose: Primary computer interface
+### Multiple Interface Options
+The system implements several communication interfaces:
 
-### CAN Interface
-Requirements:
-- Standard CAN 2.0B support
-- Isolated interface
-- Configurable bit rate
-- Purpose: System synchronization and auxiliary control
+- USB Interface:
+  - High-speed USB 2.0 implementation
+  - Command protocol support
+  - Streaming data capability
+  - Built-in device firmware upgrade capability
+  - ESD protection and filtering
+  - Purpose: Primary computer interface
 
-### Temperature Monitoring
-System includes:
-- Two temperature sensors
-- Compensation algorithms
-- Purpose: System calibration and thermal monitoring
+- Ethernet Interface:
+  - Implementation: W5500 hardwired TCP/IP controller
+  - 10/100 Mbps support
+  - Independent 25MHz crystal
+  - Magnetic isolation
+  - TCP/IP protocol support
+  - Purpose: Network connectivity and remote control
 
-## PCB Design Requirements
-
-### Power Distribution
-- Wide power planes for 12V and 5V
-- Careful placement of switching supply magnetics
-- Purpose: Clean power delivery and noise isolation
-
-### Layout Considerations
-- Separate analog and digital sections
-- Critical component placement
-- Thermal management
-- EMI mitigation
-- Future upgrade provisions
-- Purpose: System performance optimization
-
-## Calibration System
-
-### Temperature Compensation
-- Regular sensor sampling
-- Gradient monitoring
-- Compensation tables
-- Purpose: Maintaining accuracy across temperature
-
-### Signal Calibration
-- Gain calibration
-- Offset adjustment
-- Frequency response characterization
-- Purpose: Output accuracy verification
-
-## Outputs and Interfaces
-
-### Signal Outputs
-- Two independent channels
-- 50Ω output impedance
-- Voltage range: 0 to 3.3V
-- BNC or SMA connectors
-- Purpose: Waveform output
+- CAN Interface:
+  - Standard CAN 2.0B support
+  - Galvanic isolation
+  - Configurable bit rate up to 1Mbps
+  - Termination options
+  - Purpose: System synchronization and industrial control integration
 
 ### Trigger System
-Implementation Strategy:
-- Utilize MCU internal comparators for trigger detection
-- Internal reference voltage for threshold setting
-- Software-configurable hysteresis
-- Timer-based output generation
+The trigger system provides comprehensive synchronization capabilities:
 
-Input Characteristics:
-- Voltage range: 0-3.3V
-- Software-adjustable threshold
-- Configurable hysteresis through MCU comparator
-- Input protection with current limiting and TVS
-- Minimum pulse width: 100ns
+Input Triggers (3.3V logic):
+- Start trigger: Initiates waveform generation
+  - Rising edge sensitive
+  - Configurable debounce
+  - Protected input structure
+- Pause trigger: Suspends output while active
+  - Level-sensitive operation
+  - Synchronous output suspension
+  - Glitch filtering
+- Burst trigger: Generates predetermined sample count
+  - Software-configurable burst length
+  - Precise timing control
+  - Automatic termination
 
-Output Characteristics:
-- 3.3V CMOS level output
-- Timer-controlled for precise timing
-- Programmable delay (100ns resolution)
-- Short circuit and ESD protected
-- Drive capability: up to 8mA
+Output Triggers (3.3V logic):
+- Started signal: Indicates active generation
+  - Direct status indication
+  - Low-latency response
+- Peak detection: Signals waveform peaks
+  - Software-configured threshold
+  - Minimal delay implementation
+- VRef output: Buffered reference voltage
+  - Unity-gain buffered output
+  - Low impedance drive
+  - Filtered output stage
 
-This approach simplifies hardware while maintaining functionality through careful use of MCU peripherals.
-- Purpose: System synchronization
+All triggers feature:
+- EMI filtering
+- ESD protection
+- Schmitt trigger inputs where applicable
+- Output short circuit protection
 
-## Performance Targets
+### Temperature Monitoring
+The system implements dual temperature monitoring:
+- Reference section sensor
+  - Located near voltage reference
+  - 0.5°C accuracy
+  - Continuous monitoring
+- Microcontroller section sensor
+  - System temperature monitoring
+  - Thermal protection implementation
+- Look-up table based compensation
+  - Temperature-dependent calibration
+  - Digital compensation
+- Purpose: System calibration and thermal monitoring
+
+## Analog Signal Path
+
+### DAC Implementation
+The system utilizes dual LTC2642-16 DACs:
+- 16-bit resolution
+- 50 MSPS update rate
+- Voltage output configuration
+- Serial interface at 50 MHz
+- Reference buffering
+- Power supply filtering
+
+### Output Filtering
+Multi-stage filtering approach:
+
+First Stage - Third Order Sallen-Key:
+- Butterworth response characteristics
+- 850 kHz cutoff frequency
+- Minimal pass-band ripple
+- Optimized component values
+- Simulated phase response
+
+Second Stage - Unity Gain Buffer:
+- Low-noise operational amplifier
+- Additional RC filtering network
+- Output protection
+- 50Ω drive capability
+
+### Performance Optimization
+- Careful PCB layout for analog section
+- Localized power filtering
+- Shield traces where necessary
+- Minimize trace lengths
+- Matched delay paths
+
+## User Interface
+
+### Front Panel Implementation
+The front panel provides comprehensive user control through:
+
+Physical Interface:
+- Three precision potentiometers
+  - Parameter adjustment
+  - High-quality, panel-mount design
+  - Metal shaft construction
+- Three tactile control buttons
+  - Mode selection
+  - Menu navigation
+  - System control
+- LCD display
+  - Parameter visualization
+  - System status display
+  - Menu system
+- Five mode indication LEDs
+- Status LED indicators
+
+### Display Interface
+The LCD implements:
+- Current operating mode display
+- Parameter value indication
+- System status information
+- Optional waveform preview
+- Temperature and calibration status
+- Menu system for configuration
+
+## System Architecture
+
+### Main Board
+Core Components:
+- STM32H743VIT6 microcontroller
+  - 480 MHz operation
+  - 1MB RAM
+  - Extensive peripheral set
+- 16 MB Flash memory
+- Dual 16-bit DACs (LTC2642-16)
+- Third-order Sallen-Key filters
+- Unity gain output amplifiers
+- Dual temperature sensors
+- Level shifters for DAC communication
+- Debug interfaces and indicators
+
+### Front Panel Board
+Interface Components:
+- STM32G0B1 microcontroller
+  - User interface handling
+  - LED control
+  - Parameter reading
+- Interface elements
+- Status indicators
+- FPC connection to main board
+
+### Expansion Capabilities
+The system includes provisions for:
+- Daughter board interface
+  - Power distribution
+  - Communication buses
+  - Control signals
+- Additional filtering options
+- Enhanced trigger capabilities
+- Wireless connectivity options
+
+## PCB Implementation
+
+### Board Architecture
+- 4-layer implementation
+- Layer stack-up:
+  - Top: Signal
+  - Layer 2: Ground plane
+  - Layer 3: Power planes
+  - Bottom: Signal and power
+- Controlled impedance throughout
+- Single ground plane philosophy
+- Careful return path consideration
+
+### Critical Areas
+- Analog section isolation
+- Power supply placement
+- Ground plane integrity
+- High-speed signal routing
+- Thermal considerations
+
+### Manufacturing Considerations
+- Standard FR4 material
+- 1oz copper weight
+- Controlled impedance requirements
+- Through-hole and SMD mixed technology
+- Assembly considerations
+- Test point access
+
+## Performance Specifications
 
 ### Signal Generation
-- Maximum frequency: 8 MHz
-- SNR: > 60 dB
-- THD: < -60 dB
+- Maximum frequency: 500 kHz
+- Resolution: 16-bit
+- SNR: > 80 dB
+- THD: < -75 dB
+- Output filtering: Third-order Butterworth
 - Channel-to-channel skew: < 10ns
 
 ### System Operation
-- Initial lock time: < 100ms
 - Trigger latency: < 100ns
 - Temperature stability: < 50ppm/°C
-- Battery operation: > 2 hours continuous
+- Start-up time: < 100ms
+- USB/Ethernet latency: < 1ms typical
 
-## Future Expansion Considerations
+## Future Considerations
 
 The design includes provisions for:
-- Higher power output stages
-- Additional filtering options
+- Additional interface options
 - Enhanced trigger capabilities
-- Ethernet interface addition
-- Battery power option
-- Purpose: Future feature enhancement
+- Wireless connectivity through daughter boards
+- Advanced filtering implementations
+- Remote control capabilities
+- Battery operation options
 
-Note: Implementation details will be determined during the detailed design phase.
-
-
-# Panel PCB System
-
-## Overview
-
-The enclosure utilizes PCBs as structural and functional elements for both front and rear panels, integrating user interface components and connectors directly into the mechanical structure. This approach combines electrical and mechanical functionality while maintaining professional appearance and manufacturability.
-
-## Front Panel Implementation
-
-### Integrated Components
-
-The front panel PCB serves as both a structural element and a control interface, incorporating:
-
-Direct-Mount Components:
-
-- Three magnetic rotary encoders for parameter control
-    - Inner face: Encoder PCB mounting
-    - Outer face: 3D-printed control mechanism with embedded magnets
-- Five mode indicator LEDs
-    - Sine, Square, Triangle, Ramp, and Custom waveform indication
-- Status LEDs
-    - Power indication
-    - System fault indication
-- Three control buttons with protective covers
-- Supporting circuitry for controls and indicators
-
-Cut-Through Elements:
-
-- Dual BNC connector openings for waveform outputs
-- USB Type-C connector opening for computer interface
-- JST connector opening for CAN interface
-- LCD display opening (provisional)
-
-### Electrical Integration
-
-- 12-pin FPC connector interface to main board
-- Local power distribution for LEDs and encoders
-- Signal conditioning for control inputs
-- Optional I2C expansion for additional controls
-
-## Rear Panel Implementation
-
-### Integrated Components
-
-The rear panel PCB provides power input and auxiliary connections:
-
-Cut-Through Elements:
-
-- 12V DC barrel connector opening (5.5mm × 2.1mm)
-- Ventilation openings for thermal management
-
-### Mechanical Integration
-
-- PCB thickness optimized for structural integrity
-- Mounting points coordinated with main chassis
-- EMI considerations in panel design and grounding
-
-## Mechanical Requirements
-
-### Material Specifications
-
-- PCB Material: FR4
-- Minimum Thickness: Determined by structural analysis
-- Surface Finish: Black solder mask with white silkscreen
-- Copper Weight: Sufficient for structural integrity and EMI shielding
-
-### Assembly Integration
-
-- Precision alignment features for main board mounting
-- Integrated standoffs for structural support
-- Strain relief for cable and connector interfaces
-- Thermal considerations for component spacing
-
-### Environmental Considerations
-
-- Operating Temperature Range: 0°C to 50°C
-- Humidity: 10% to 90% non-condensing
-- Mechanical Shock: Survival of 50g, 11ms half-sine
-
-## Manufacturing Considerations
-
-The panel PCBs shall be designed with consideration for:
-
-- Standard PCB manufacturing processes
-- Common tolerance specifications
-- Cost-effective panel utilization
-- Assembly efficiency
-- Maintenance accessibility
-- Future revision compatibility
-
-## Electrical Requirements
-
-### Signal Integrity
-
-- Ground plane continuity between panels
-- EMI shielding effectiveness
-- Signal routing isolation
-- Power distribution optimization
-
-### Interface Requirements
-
-- FPC connector specifications
-- Power and signal pin assignments
-- Grounding scheme integration
-- EMI/EMC compliance considerations
+Note: All specifications subject to verification during detailed design phase.

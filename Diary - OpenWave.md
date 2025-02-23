@@ -131,53 +131,62 @@ Engineering Notes:
 ### 20
 
 #### Key Decisions
-- Decision 1
+- Reduced Battery to 20 mm size - 30 is too much!
+- Decided that front panel will have dedicated extremely low cost STM32 to handle I/O
+- Related to above, decided on a simple LCD Screen.
 
 #### Today's Goals
 - [ ] Finish up most of the core schematic
-- [ ] Goal 2
-- [ ] Goal 3
+- [ ] Review Core Schematic
 
 #### Tasks
 
 1. Schematic
     ##### TODO
-    - [ ] Fix step-down divider to get 5.5V instead of 5V
-    - [ ] Subtask 2
+    - [x] Fix step-down divider to get 5.5V instead of 5V
+    - [ ] Add debug options ( Test Points, LEDs, UART )
+    - [x] Add CAN
+    - [x] Connect everything to the STM after initial layout considerations
     
     ##### NOTES
-    - Note 1
-    - Note 2
-    
-    ##### ISSUES
-    - [x] ~~Issue 1~~
-        - Solution: How it was resolved
-    - [ ] Issue 2
-        - Current status
-        - Attempted solutions
-
-2. Another Task
-    ##### TODO
-    - [ ] Subtask 1
-    
-    ##### NOTES
-    - Important observation
-    
-    ##### ISSUES
-    - [ ] Blocker identified
-        - Potential workarounds
+    - After hours of intense thought, decided to keep current DAC with only 2 MHz usable and 12 bit due to simplicity in this initial version
 
 #### End of Day Notes
-- Accomplished thing 1
-    - Additional details
-    - Technical implications
-- Discovered thing 2
-    - Why this matters
-    - Next steps
+- Finished V0.1 of Schematic with connections
+- Decided I must learn to simulate filter response and design.
 
 #### Gallery
-![[image1.png]]
-- Caption: What this image shows
+![[OpenWave_Init.pdf]]
+- Caption: Init version of full Schematic
 
-![[image2.png]]
-- Caption: Purpose of this screenshot
+### 22
+
+Extra note: Spend 21 and most of 22 learning Simscape and Simulink to simulate some filters
+#### Key Decisions
+- Decided to implement 3rd order Sallen-Key with Butterworth response on the output from the DAC.
+
+#### Today's Goals
+- [ ] Finish filter design and implementation
+
+#### Tasks
+
+1. Filter
+    ##### TODO
+    - [ ] Consult with mentor on ideal power filter cut-off freq
+    
+    ##### NOTES
+    - Basically filtering anything above 850 kHz. I love it how I started with 20 MHz in plan haha
+    
+
+
+#### End of Day Notes
+- Made a filter
+  - Essential for proper output
+
+#### Gallery
+![[OutputFilterResponse.png]]
+- Caption: Output Filter Response
+![[OutputFilterDesign.png]]
+- Caption: Output Filter Design
+![[PowerFilterResponse.jpg]]
+- Caption: Power Filter Response

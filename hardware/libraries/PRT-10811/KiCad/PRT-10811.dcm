@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PRT-10811
+D Power Barrel Connector Jack 2.10mm ID (0.083"), 5.50mm OD (0.217") Through Hole, Right Angle , 20VDC , 4A , -20C ~ 70C
+K
+F http://cdn.sparkfun.com/datasheets/Prototyping/18742.pdf
+$ENDCMP
+#
+#End Doc Library
