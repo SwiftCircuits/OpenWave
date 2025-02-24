@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/Software-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Project Status: WIP](https://img.shields.io/badge/Project%20Status-WIP-orange.svg)]()
 
-**A dual-channel, high-precision waveform generator designed for control system analysis and general electronics development**
+**A dual-channel, high-precision waveform generator designed for control system analysis and system identification**
 
 [Features](#features) • [Getting Started](#getting-started) • [Documentation](#documentation) • [Contributing](#contributing)
 
@@ -16,58 +16,70 @@
 
 ## Why OpenWave?
 
-Traditional arbitrary waveform generators are either expensive lab equipment or limited-capability hobby projects. OpenWave bridges this gap, providing professional-grade features in an open-source design that advanced hobbyists can build and modify.
+Traditional arbitrary waveform generators often force a choice between expensive lab equipment or limited-capability hobby projects. OpenWave bridges this gap by providing professional-grade precision in an open-source design that prioritizes signal quality over raw speed. By focusing on the critical frequency range used in control systems and system identification (up to 500 kHz), we've optimized for exceptional signal quality and reliability.
 
 ### Key Features
 
-- Dual independent channels with synchronized operation
-- Up to 8 MHz bandwidth with 12-bit resolution
-- 60 dB SNR for precise measurements
-- USB and standalone operation modes
-- Battery-powered for portable use
-- Advanced triggering capabilities
-- Robust USB and CAN interfaces
+- Dual independent channels with 16-bit resolution
+- Optimized 500 kHz bandwidth with 80 dB SNR
+- Sophisticated triggering system for precise control
+- Multiple interface options: USB, Ethernet, and CAN
+- Intuitive front panel control with LCD display
+- Expansion capability through daughter board interface
+- Precision temperature-monitored reference system
+- Professional-grade signal filtering and conditioning
 
 ### Perfect For
 
 - Control system development and testing
 - System identification experiments
-- Electronics education and learning
-- Signal processing projects
-- General electronics development
-- Academic research projects
+- Precision measurement applications
+- Educational laboratory setups
+- Research and development projects
+- Industrial control system integration
+- Signal processing development
 
 ## Technical Overview
 
-OpenWave combines careful hardware design with flexible software to achieve its performance targets:
+OpenWave combines meticulous hardware design with flexible software to achieve exceptional signal quality:
 
 ### Signal Generation
-- Dual 12-bit DACs with up to 100 MSPS
-- Clean analog output stage for minimal distortion
-- Precise amplitude and offset control
-- Multiple standard waveforms plus arbitrary patterns
+- Dual 16-bit DACs (LTC2642-16) operating at 50 MSPS
+- Third-order Sallen-Key filtering with Butterworth response
+- Additional output stage conditioning
+- Ultra-low noise power supply design
+- Temperature-compensated reference system
+- Comprehensive signal isolation and protection
 
 ### Control and Interface
-- USB interface for complex waveform uploading
-- Intuitive standalone operation with physical controls
-- Real-time parameter adjustment
-- CAN interface for system integration
-- Comprehensive trigger system
+- High-speed USB 2.0 interface
+- 10/100 Ethernet connectivity
+- Industrial-grade CAN interface
+- Advanced trigger system with multiple modes:
+  - Start trigger with precise timing
+  - Level-sensitive pause control
+  - Configurable burst mode
+  - Status and peak detection outputs
+- Intuitive front panel interface with LCD display
 
 ### Power System
-- USB-C power delivery
-- Battery backup for portable operation
-- Clean power rails for analog circuitry
-- Efficient power management
+- 12V DC input with protection
+- Sophisticated multi-stage power architecture:
+  - High-efficiency 5.5V pre-regulation
+  - Ultra-low noise 5V analog supply
+  - Clean 3.3V digital rail
+  - Precision 3.3V reference
+- Extensive power filtering and isolation
 
 ## Getting Started
 
 ### Current Status
-This project is under active development. We're currently:
-- Finalizing the initial PCB design
-- Developing core firmware features
-- Creating documentation
-- Building test infrastructure
+This project is under active development. Current focus areas:
+- Finalizing PCB layout and power distribution
+- Implementing core firmware features
+- Developing user interface systems
+- Creating comprehensive documentation
+- Establishing test procedures
 
 ### For Contributors
 
@@ -75,45 +87,55 @@ We welcome contributions in several areas:
 
 **Hardware Development**
 - PCB layout optimization
-- Component selection refinement
+- Signal integrity improvements
+- Power distribution refinement
 - Manufacturing optimization
-- Test point placement and coverage
+- Test coverage enhancement
 
 **Firmware Development**
-- USB communication protocol
-- Waveform generation algorithms
-- User interface implementation
-- Performance optimization
+- STM32 core implementation
+- Front panel interface development
+- Communication protocol implementation
+- Signal generation algorithms
+- User interface refinement
 
 **Documentation and Testing**
-- User manual creation
-- Calibration procedures
-- Automated testing tools
-- Example applications
+- System specification documentation
+- Assembly and calibration procedures
+- Performance verification methods
+- Application examples
+- User manual development
 
 ## Building OpenWave
 
 ### Hardware Requirements
-- Access to 4-layer PCB manufacturing
-- SMD assembly capabilities
-- Basic test equipment (oscilloscope, multimeter)
-- Programming adapter (ST-Link or similar)
+- 4-layer PCB manufacturing capability
+- SMD assembly equipment
+- Precision test equipment:
+  - Oscilloscope (>100MHz bandwidth)
+  - Precision multimeter
+  - Signal analyzer (recommended)
+- STM32 programming capability
+- Basic electronic assembly tools
 
 ### Software Requirements
-- ARM development toolchain
-- PCB design tool (KiCad preferred)
-- Version control system
-- Build system requirements (TBD)
+- STM32CubeIDE development environment
+- ARM GCC toolchain
+- KiCad 7.0 or later
+- Git version control
+- Build system requirements (detailed in documentation)
 
 ## Documentation
 
 > 🚧 Documentation is currently under development
 
-Planned documentation will cover:
-- Complete theory of operation
-- Assembly and testing guides
-- Calibration procedures
-- Usage examples and applications
+Comprehensive documentation will cover:
+- Complete system architecture
+- Detailed theory of operation
+- Assembly and testing procedures
+- Calibration methodology
+- Performance optimization
+- Application examples
 - Development guidelines
 
 ## Contributing
@@ -121,36 +143,42 @@ Planned documentation will cover:
 Your expertise can help make OpenWave better! Here's how you can contribute:
 
 1. **Join Discussions**
-   - Share your use cases and requirements
-   - Suggest improvements
-   - Help shape future features
+   - Share your application requirements
+   - Suggest performance improvements
+   - Help define future features
+   - Participate in design reviews
 
 2. **Technical Contributions**
-   - Review and improve PCB design
-   - Enhance firmware functionality
-   - Create documentation
-   - Develop test procedures
+   - PCB design optimization
+   - Firmware development
+   - Documentation creation
+   - Test procedure development
+   - Performance validation
 
 3. **Testing and Validation**
-   - Build and test prototypes
-   - Validate performance specs
-   - Create test fixtures
-   - Report issues and bugs
+   - Prototype building and testing
+   - Performance verification
+   - Use case validation
+   - Issue reporting and tracking
 
 ## Project Structure
 
 ```
-/hardware          - KiCad design files
-  /main           - Main board design
-  /manufacturing  - Production files
-/firmware         - Source code
-  /core           - Core functionality
-  /ui            - User interface
-  /tests         - Test suites
-/docs             - Documentation
-  /hardware      - Hardware documentation
-  /firmware      - Software documentation
-  /user          - User guides
+/hardware           - KiCad design files
+  /main            - Main board design
+  /front_panel     - Front panel PCB
+  /daughter_boards - Expansion board designs
+  /manufacturing   - Production files
+/firmware          - Source code
+  /core            - Core STM32H7 functionality
+  /front_panel     - STM32G0 interface code
+  /libraries       - Shared libraries
+  /tests           - Test suites
+/docs              - Documentation
+  /hardware        - Hardware documentation
+  /firmware        - Software documentation
+  /user            - User guides
+  /testing         - Test procedures
 ```
 
 ## License
@@ -161,7 +189,8 @@ Your expertise can help make OpenWave better! Here's how you can contribute:
 ## Acknowledgments
 
 OpenWave builds on the work of many open-source projects and individuals. Special thanks to:
-- Various open-source test equipment projects that inspired this work
+- The open hardware community for inspiration and shared knowledge
+- Contributors who have helped shape the project's direction
 
 ## Contact and Support
 
