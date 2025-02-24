@@ -35,8 +35,7 @@
               "title": "Spec Doc"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "8f1553adde8bd92b",
@@ -200,26 +199,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d5227215a13a0ffb",
+  "active": "6d8d171e8506be34",
   "lastOpenFiles": [
+    "hardware/main/OpenWave_Init/fp-78F5.tmp",
+    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-25_002921.zip",
+    "docs/hardware/Spec Doc.md",
+    "hardware/main/OpenWave_Init/#auto_saved_files#",
+    "hardware/main/OpenWave_Init/_autosave-OpenWave_Init.kicad_sch",
+    "hardware/main/OpenWave_Init/~OpenWave_Init.kicad_sch.lck",
     "hardware/main/OpenWave_Init/~OpenWave_Init.kicad_pro.lck",
     "hardware/main/OpenWave_Init/fp-7DDF.tmp",
     "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-24_004411.zip",
     "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-24_003816.zip",
     "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-24_003304.zip",
-    "hardware/main/OpenWave_Init/_autosave-OpenWave_Init.kicad_sch",
     "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-24_001810.zip",
-    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-24_001220.zip",
-    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-23_233959.zip",
-    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-23_232943.zip",
-    "hardware/main/OpenWave_Init/OpenWave_Init-backups/OpenWave_Init-2025-02-23_231923.zip",
     "Project Overview - OpenWave.md",
     "Diary - OpenWave.md",
     "docs/hardware/OutputFilterBode.png",
     "docs/hardware/PowerFilterResponse.jpg",
     "docs/hardware/OutputFilterDesign.png",
     "docs/hardware/OutputFilterResponse.png",
-    "docs/hardware/Spec Doc.md",
     "Usefull Info Videos - OpenWave.md",
     "README.md",
     "docs/Logov1Big.png",
